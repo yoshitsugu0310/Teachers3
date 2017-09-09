@@ -1,0 +1,24 @@
+<h1>教師詳細ページ</h1>
+名前:<%= @user.name %>
+<div class="">
+  <p><b>評価</b><%= adjust_decimal @average %>/5</p>
+</div>
+<div class="">
+
+<% if current_user.status == "student" %>
+  <%= form_for @new_review do |f| %>
+    <div class="field">
+      <%= f.text_area :content, placeholder: "コメント欄" %>
+    </div>
+    <%= f.submit "POST", class: "btn btn-large btn-primary" %>
+  <% end %>
+  <% end %>
+
+
+  <h2>コメント</h2>
+  <% @reviews.each do |review| %>
+     <p><%= review.content %></p>
+  <% end %>
+
+
+</div>

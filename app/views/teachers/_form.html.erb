@@ -1,0 +1,26 @@
+<h3><%= f.label :sex %></h3>
+男<%= f.radio_button :sex, :man %>
+女<%= f.radio_button :sex, :woman %>
+
+<h3>大学名<%= f.label :university_name %></h3>
+<%= f.text_field :university_name, class: 'form-control' %>
+
+<h3>郵便番号<%= f.label :post_number %></h3>
+<%= f.text_field :post_number, class: 'form-control' %>
+
+<h3>指導科目</h3>
+<%= f.label :japanese, "Japanese" %>
+<%= f.check_box :japanese, checked_value:1, unchecked_value:0 %>
+<%= f.label :math, "Math" %>
+<%= f.check_box :math, checked_value:1, unchecked_value:0 %>
+<%= f.label :science, "Science" %>
+<%= f.check_box :science, checked_value:1, unchecked_value:0 %>
+<%= f.label :social, "Social" %>
+<%= f.check_box :social, checked_value:1, unchecked_value:0 %>
+<%= f.label :english, "English" %>
+<%= f.check_box :english, checked_value:1, unchecked_value:0 %>
+
+<h3>自己ＰＲ<%= f.label :appeal %></h3>
+<%= f.text_area :appeal, class: 'field' %>
+
+<p><%= f.submit yield(:button_text), class: "btn btn-primary" %></p>

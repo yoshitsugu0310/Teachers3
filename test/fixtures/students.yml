@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sex: 1
+  post_number: 1
+  subject: 1
+  grade: MyString
+  station: MyString
+  user: one
+
+two:
+  sex: 1
+  post_number: 1
+  subject: 1
+  grade: MyString
+  station: MyString
+  user: two

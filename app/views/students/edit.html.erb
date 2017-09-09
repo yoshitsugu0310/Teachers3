@@ -1,0 +1,15 @@
+<% provide(:title, "Edit student") %>
+<% provide(:button_text, "Save changes") %>
+<h1>Update your mypage</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@student, url: student_path(@student.user_id)) do |f| %>
+
+    <%= render 'form', f: f %>
+
+    <% end %>
+
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+    <h3><%= f.label :sex %></h3>
+    男<%= f.radio_button :sex, :man %>
+    女<%= f.radio_button :sex, :woman %>
+
+    <h3><%= f.label :grade %></h3>
+    <%= f.select :grade, [["小学４年", "小学４年"], ["小学５年", "小学５年"], ["小学６年", "小学６年"], ["中学１年", "中学１年"], ["中学２年", "中学２年"], ["中学３年", "中学３年"], ["高校１年", "高校１年"], ["高校２年", "高校２年"], ["高校３年", "高校３年"], ["その他", "その他"]], :prompt => "選択してください", class:"form-control" %>
+
+    <h3><%= f.label :post_number %></h3>
+    <%= f.text_field :post_number, class: 'form-control' %>
+
+    <h3>科目</h3>
+    <%= f.label :japanese, "Japanese" %>
+    <%= f.check_box :japanese, checked_value:1, unchecked_value:0 %>
+    <%= f.label :math, "Math" %>
+    <%= f.check_box :math, checked_value:1, unchecked_value:0 %>
+    <%= f.label :science, "Science" %>
+    <%= f.check_box :science, checked_value:1, unchecked_value:0 %>
+    <%= f.label :social, "Social" %>
+    <%= f.check_box :social, checked_value:1, unchecked_value:0 %>
+    <%= f.label :english, "English" %>
+    <%= f.check_box :english, checked_value:1, unchecked_value:0 %>
+
+    <h3>最寄り駅<%= f.label :station %></h3>
+    <%= f.text_field :station, class: 'form-control' %>
+
+    <p><%= f.submit yield(:button_text), class: "btn btn-primary" %></p>

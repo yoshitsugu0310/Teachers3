@@ -1,0 +1,10 @@
+<% if @feed_items.any? %>
+
+    <% @feed_items.each do |teacher| %>
+    <ol class="teachers">
+    <%= link_to teacher.user_id, teacher_path(teacher.user_id) %>
+    </ol>
+    <% end %>
+
+
+<% end %>
