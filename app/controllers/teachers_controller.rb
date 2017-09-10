@@ -45,7 +45,7 @@ class TeachersController < ApplicationController
      if @teacher.update_attributes(teacher_params)
        #更新に成功した場合
        flash[:success] = "MyPage updated"
-      redirect_to @teacher
+      redirect_to url: teacher_path(@teacher.user_id)
      else
        render 'edit'
      end
@@ -63,6 +63,7 @@ class TeachersController < ApplicationController
 
      session[:teacher] = @user.id
      @average = @user.get_review_average
+     @average_100 = (@average / 5) * 100
 
 
    end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170909012602) do
+ActiveRecord::Schema.define(version: 20170910122834) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "content"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20170909012602) do
     t.integer "science"
     t.integer "social"
     t.integer "english"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
@@ -52,6 +54,8 @@ ActiveRecord::Schema.define(version: 20170909012602) do
     t.string "university_name"
     t.integer "fee"
     t.text "appeal"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 

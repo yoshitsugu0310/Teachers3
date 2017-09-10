@@ -48,7 +48,7 @@ end
      if @student.update_attributes(student_params)
        #更新に成功した場合
        flash[:success] = "MyPage updated"
-      redirect_to @student
+      redirect_to url: student_path(@student.user_id)
      else
        render 'edit'
      end
@@ -60,6 +60,7 @@ end
   def show
 
     @student = Student.find_by(user_id:params[:id])
+    @user = User.find(@student.user_id)
 
   end
 

@@ -1,8 +1,9 @@
 <% if @feed_items.any? %>
 
-    <% @feed_items.each do |teacher| %>
+    <% @array.each do |match_teacher| %>
     <ol class="teachers">
-    <%= link_to teacher.user_id, teacher_path(teacher.user_id) %>
+    <%= link_to match_teacher[0], teacher_path(match_teacher[0]) %>
+    <%= match_teacher[1] %>
     </ol>
     <% end %>
 

@@ -1,12 +1,27 @@
 <h1>教師詳細ページ</h1>
-名前:<%= @user.name %>
+<p>名前:<%= @user.name %></p>
+<p>学歴:<%= @teacher.university_name %></p>
+<p>希望授業料:<%= @teacher.fee %></p>
+<p>性別:<%= @teacher.sex %></p>
+<p>郵便番号:<%= @teacher.post_number %></p>
+<p>担当科目:</p>
+<p>自己ＰＲ:<%= @teacher.appeal %></p>
 <div class="">
-  <p><b>評価</b><%= adjust_decimal @average %>/5</p>
+  <!-- style = "width: <% @average_100 %>%" -->
+  <p><b>評価</b><%= @average.round(1) %>/5.0<div class = "star-rating-box"><span style="width:<%= @average_100 %>%" class="star-rating-css-top"></span></div></p>
 </div>
 <div class="">
 
 <% if current_user.status == "student" %>
   <%= form_for @new_review do |f| %>
+    <span class="star-rating">
+      <%= f.radio_button :review, value="1" %><i></i>
+      <%= f.radio_button :review, value="2" %><i></i>
+      <%= f.radio_button :review, value="3" %><i></i>
+      <%= f.radio_button :review, value="4" %><i></i>
+      <%= f.radio_button :review, value="5" %><i></i>
+    </span>
+
     <div class="field">
       <%= f.text_area :content, placeholder: "コメント欄" %>
     </div>
@@ -20,5 +35,7 @@
      <p><%= review.content %></p>
   <% end %>
 
-
 </div>
+<% if @teacher.user_id == current_user.id %>
+<%= link_to "Edit My Page", edit_teacher_path(current_user) %>
+<% end %>
