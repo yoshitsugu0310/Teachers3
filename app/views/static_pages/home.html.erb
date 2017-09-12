@@ -7,13 +7,21 @@
     sample application.
   </h2>
 
-  <% if logged_in? %>
+  <% if logged_in? && current_user.status == "student" %>
   <div class="row">
 
     <div class="col-md-8">
       <h3>Techers Feed</h3>
       <%= render 'shared/feed' %>
     </div>
+    
+    <% elsif logged_in? && current_user.status == "teacher" %>
+    <div class="row">
+
+      <div class="col-md-8">
+        <h3>Students Feed</h3>
+        <%= render 'shared/feed' %>
+      </div>
     <% else %>
 
 

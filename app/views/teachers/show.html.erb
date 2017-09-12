@@ -6,12 +6,21 @@
 <p>郵便番号:<%= @teacher.post_number %></p>
 <p>担当科目:</p>
 <p>自己ＰＲ:<%= @teacher.appeal %></p>
+
+
+
+<!-- 評価を表示 -->
 <div class="">
   <!-- style = "width: <% @average_100 %>%" -->
   <p><b>評価</b><%= @average.round(1) %>/5.0<div class = "star-rating-box"><span style="width:<%= @average_100 %>%" class="star-rating-css-top"></span></div></p>
 </div>
+
+
+
 <div class="">
 
+
+<!-- ユーザーが生徒なら評価フォームを表示 -->
 <% if current_user.status == "student" %>
   <%= form_for @new_review do |f| %>
     <span class="star-rating">
@@ -27,6 +36,10 @@
     </div>
     <%= f.submit "POST", class: "btn btn-large btn-primary" %>
   <% end %>
+
+  <%= link_to "リクエストする", new_match_path %>
+
+
   <% end %>
 
 
@@ -36,6 +49,9 @@
   <% end %>
 
 </div>
+
+
+<!-- ログインしているユーザーと一致すれば編集リンクを表示 -->
 <% if @teacher.user_id == current_user.id %>
 <%= link_to "Edit My Page", edit_teacher_path(current_user) %>
 <% end %>

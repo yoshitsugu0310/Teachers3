@@ -1,4 +1,4 @@
-<% if @feed_items.any? %>
+<% if @feed_items.any? && current_user.status == "student" %>
 
     <% @array.each do |match_teacher| %>
     <ol class="teachers">
@@ -6,6 +6,18 @@
     <%= match_teacher[1] %>
     </ol>
     <% end %>
+
+    <% elsif @feed_items.any? && current_user.status == "teacher" %>
+
+      <% @feed_items.each do |s| %>
+      <ol class="students">
+      <%= link_to s.user.name, student_path(s.user_id) %>
+
+
+    </ol>
+    <% end %>
+
+
 
 
 <% end %>

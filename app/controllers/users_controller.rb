@@ -9,10 +9,8 @@ class UsersController < ApplicationController
   end
 
   def show
-   @user = User.find(params[:id])
-   if @user.status == 10
-   @student = @user.students
- end
+    @user = User.find(params[:id])
+    
   end
 
   def new

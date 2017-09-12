@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170910122834) do
+ActiveRecord::Schema.define(version: 20170911144723) do
+
+  create_table "matches", force: :cascade do |t|
+    t.integer "teacher_id"
+    t.integer "student_id"
+    t.integer "request"
+    t.integer "adoption"
+    t.integer "money"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "request_time1"
+    t.datetime "request_time2"
+    t.datetime "request_time3"
+    t.datetime "appoint_time"
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.text "content"

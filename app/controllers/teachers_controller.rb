@@ -19,7 +19,7 @@ class TeachersController < ApplicationController
     if @teacher.save
       # 保存の成功をここで扱う。
       flash[:info] = "Create My Page"
-      redirect_to @teacher
+      redirect_to teacher_path(@teacher.user_id)
     else
       # redirect_to edit_student_path(id: @student.user.id)
 
@@ -62,9 +62,12 @@ class TeachersController < ApplicationController
      @new_review.user_id = @user.id
 
      session[:teacher] = @user.id
-     @average = @user.get_review_average
+     if @average = @user.reviews.get_review_average
      @average_100 = (@average / 5) * 100
-
+    else
+     @average = 0
+     @average_100 = 0
+   end
 
    end
 

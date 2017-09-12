@@ -5,4 +5,13 @@ class Student < ApplicationRecord
 
   geocoded_by :post_number
   after_validation :geocode
+
+  def check_subject
+    @subject = Array.new
+
+  end
+
+  def self.feed
+      Student.all
+ end
 end

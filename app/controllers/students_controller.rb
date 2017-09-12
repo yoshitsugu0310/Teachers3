@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
     if @student.save
       # 保存の成功をここで扱う。
       flash[:info] = "Create My Page"
-      redirect_to @student
+      redirect_to student_path(@student.user_id)
     else
       # redirect_to edit_student_path(id: @student.user.id)
 

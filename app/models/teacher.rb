@@ -8,8 +8,36 @@ class Teacher < ApplicationRecord
   after_validation :geocode
 
   def self.feed
-   self.all
-   
+      subject = Array.new
+      i = 0
+      if current_user.id == 1
+         subject[i] = "japanese"
+         i += 1
+       elsif current_user.math == 1
+         subject[i] = "math"
+         i += 1
+       elsif current_user.social == 1
+         subject[i] = "social"
+         i += 1
+       elsif current_user.science == 1
+         subject[i] = "science"
+         i += 1
+       elsif current_user.english == 1
+         subject[i] = "english"
+       end
+
+       l = subject.length
+       n = 0
+      while n < l
+        Teacher.where(subject[n] = "1")
+        i += 1
+      end
+
+
+
+
  end
+
+
 
 end

@@ -54,11 +54,8 @@ class User < ApplicationRecord
   end
 
 
+  
 
-  #レビューの平均値
- def get_review_average
-   Review.average(:review)
- end
 
  #緯度経度による二点間の距離(km)
  def self.distance(lat1, lng1, lat2, lng2)
