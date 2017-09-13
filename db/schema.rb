@@ -10,11 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911144723) do
+ActiveRecord::Schema.define(version: 20170913072107) do
 
   create_table "matches", force: :cascade do |t|
-    t.integer "teacher_id"
-    t.integer "student_id"
     t.integer "request"
     t.integer "adoption"
     t.integer "money"
@@ -24,6 +22,10 @@ ActiveRecord::Schema.define(version: 20170911144723) do
     t.datetime "request_time2"
     t.datetime "request_time3"
     t.datetime "appoint_time"
+    t.integer "student_id"
+    t.integer "teacher_id"
+    t.index ["student_id"], name: "index_matches_on_student_id"
+    t.index ["teacher_id"], name: "index_matches_on_teacher_id"
   end
 
   create_table "reviews", force: :cascade do |t|

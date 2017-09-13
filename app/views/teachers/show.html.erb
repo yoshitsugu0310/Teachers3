@@ -54,4 +54,17 @@
 <!-- ログインしているユーザーと一致すれば編集リンクを表示 -->
 <% if @teacher.user_id == current_user.id %>
 <%= link_to "Edit My Page", edit_teacher_path(current_user) %>
+
+
+
+<h3>届いているリクエスト</h3>
+<% @matches.each do |match| %>
+  <p><%= match %></p>
+<% end %>
+
+
+
+
+
+
 <% end %>

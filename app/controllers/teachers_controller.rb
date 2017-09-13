@@ -69,6 +69,8 @@ class TeachersController < ApplicationController
      @average_100 = 0
    end
 
+    @matches = Match.where(teacher_id: @teacher.user_id)
+
    end
 
   private
