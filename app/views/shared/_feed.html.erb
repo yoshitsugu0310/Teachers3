@@ -2,22 +2,24 @@
 
     <% @feed_items.each do |match_teacher| %>
     <ol class="teachers">
-    <%= link_to match_teacher[0], teacher_path(match_teacher[0]) %>
-    <%= match_teacher[1] %>
+    <%= link_to User.find(match_teacher[0]).name, teacher_path(match_teacher[0]) %>
+    あなたと先生との距離<%= match_teacher[1] %>km
+     <p>マッチした科目</p>
+     <% match_teacher[2].each do |s| %>
+       <%= s + "  "%>
+
+     <% end %>
     </ol>
     <% end %>
 
-    <% elsif @feed_items.any? && current_user.status == "teacher" %>
+    <% elsif @feed_items.present? && current_user.status == "teacher" %>
 
-      <% @feed_items.each do |s| %>
+      <% @feed_items.each do |match_student| %>
       <ol class="students">
-      <%= link_to s.user.name, student_path(s.user_id) %>
-
+      <%= link_to User.find(match_student[0]).name, student_path(match_student[0]) %>
+      あなたと生徒との距離：<%= match_student[1] %>km
+      <p>マッチした科目<%= match_student[2] %></p>
 
     </ol>
     <% end %>
-
-
-
-
 <% end %>

@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913072107) do
+ActiveRecord::Schema.define(version: 20170915025227) do
 
   create_table "matches", force: :cascade do |t|
-    t.integer "request"
-    t.integer "adoption"
+    t.boolean "request"
+    t.boolean "adoption"
     t.integer "money"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

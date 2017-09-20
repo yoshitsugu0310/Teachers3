@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
 
 
     elsif logged_in? && current_user.status == "teacher"
-      @feed_items = Student.feed
+      @feed_items = Student.feed(current_user)
 
     end
   end

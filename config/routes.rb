@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   resources :students,        only: [:index, :edit, :update, :show, :create, :new]
   resources :teachers,        only: [:edit, :update, :show, :create, :new]
   resources :reviews,         only: [:create, :destroy]
-  resources :matches,           only: [:new, :create]
+  resources :matches,           only: [:new, :create, :edit, :update, :destroy]
 end

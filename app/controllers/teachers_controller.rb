@@ -70,7 +70,7 @@ class TeachersController < ApplicationController
    end
 
     @matches = Match.where(teacher_id: @teacher.user_id)
-
+    
    end
 
   private

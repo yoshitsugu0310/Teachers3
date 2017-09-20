@@ -59,7 +59,10 @@
 
 <h3>届いているリクエスト</h3>
 <% @matches.each do |match| %>
-  <p><%= match %></p>
+  <p><%= link_to User.find(match.student_id).name, edit_match_path(match.id) %>
+     <%= link_to "非承認",  match_path(match.id), method: :delete %>
+  </p>
+
 <% end %>
 
 

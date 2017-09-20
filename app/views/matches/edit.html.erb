@@ -1,0 +1,8 @@
+<p>リクエストされた日時です。都合の良い日を選択して承認してください。</p>
+<%= form_for @match do |f| %>
+ <%= @match.request_time1 %><%= f.radio_button :appoint_time, @match.request_time1%>
+ <%= @match.request_time2 %><%= f.radio_button :appoint_time, @match.request_time2 %>
+ <%= @match.request_time3 %><%= f.radio_button :appoint_time, @match.request_time3 %>
+ <%= f.submit '承認する', class: 'btn btn-primary' %>
+
+ <% end %>

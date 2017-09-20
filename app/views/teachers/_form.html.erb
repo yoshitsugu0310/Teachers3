@@ -1,6 +1,6 @@
 <h3><%= f.label :sex %></h3>
-男<%= f.radio_button :sex, :man %>
-女<%= f.radio_button :sex, :woman %>
+<label class = "sex">男<%= f.radio_button :sex, :man %></label>
+<label class = "sex">女<%= f.radio_button :sex, :woman %></label>
 
 <h3>大学名<%= f.label :university_name %></h3>
 <%= f.text_field :university_name, class: 'form-control' %>

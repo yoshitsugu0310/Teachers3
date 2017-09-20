@@ -1,6 +1,6 @@
     <h3><%= f.label :sex %></h3>
-    男<%= f.radio_button :sex, :man %>
-    女<%= f.radio_button :sex, :woman %>
+    <label class = "sex">男<%= f.radio_button :sex, :man %></label>
+    <label class = "sex">女<%= f.radio_button :sex, :woman %></label>
 
     <h3><%= f.label :grade %></h3>
     <%= f.select :grade, [["小学４年", "小学４年"], ["小学５年", "小学５年"], ["小学６年", "小学６年"], ["中学１年", "中学１年"], ["中学２年", "中学２年"], ["中学３年", "中学３年"], ["高校１年", "高校１年"], ["高校２年", "高校２年"], ["高校３年", "高校３年"], ["その他", "その他"]], :prompt => "選択してください", class:"form-control" %>

@@ -1,6 +1,6 @@
 class Match < ApplicationRecord
-  belongs_to :teacher
-  belongs_to :student
+  belongs_to :teacher ,optional: true
+  belongs_to :student ,optional: true
 include DatetimeIntegratable
 
   integrate_datetime_fields :request_time1, :request_time2, :request_time3
