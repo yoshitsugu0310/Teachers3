@@ -9,7 +9,8 @@
     <%= f.text_field :post_number, class: 'form-control' %>
 
     <h3>科目</h3>
-    
+    <%= f.label :japanese, "Japanese" %>
+    <%= f.check_box :japanese, checked_value:1, unchecked_value:0 %>
     <%= f.label :math, "Math" %>
     <%= f.check_box :math, checked_value:1, unchecked_value:0 %>
     <%= f.label :science, "Science" %>
