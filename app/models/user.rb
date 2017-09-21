@@ -54,7 +54,7 @@ class User < ApplicationRecord
   end
 
 
-  
+
 
 
  #緯度経度による二点間の距離(km)
@@ -88,7 +88,16 @@ class User < ApplicationRecord
 end
 
 
+# アカウントを有効にする
+  def activate
+    update_attribute(:activated,    true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
 
+  # 有効化用のメールを送信する
+def send_activation_email
+  UserMailer.account_activation(self).deliver_now
+end
 
 
 
@@ -105,16 +114,7 @@ end
     self.activation_digest = User.digest(activation_token)
   end
 
-  # アカウントを有効にする
-    def activate
-      update_attribute(:activated,    true)
-      update_attribute(:activated_at, Time.zone.now)
-    end
 
-    # 有効化用のメールを送信する
-  def send_activation_email
-    UserMailer.account_activation(self).deliver_now
-  end
 
   # パスワード再設定の属性を設定する
     def create_reset_digest
