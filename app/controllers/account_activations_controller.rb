@@ -5,7 +5,13 @@ class AccountActivationsController < ApplicationController
       user.activate
       log_in user
       flash[:success] = "Account activated!"
-      redirect_to user
+
+    if user.state == "student"
+      redirect_to new_student_path
+    elsif  user.state == "teacher"
+      redirect_to new_teacher_path
+    end
+
     else
       flash[:danger] = "Invalid activation link"
       redirect_to root_url
