@@ -14,7 +14,9 @@ class Teacher < ApplicationRecord
 
 
   def self.feed(user)
-    
+    if Teacher == nil
+      return
+    end
     @student = Student.find_by(user_id: user.id)
     if @student.japanese == 1
           japanese = Teacher.where(japanese: 1)
