@@ -1,8 +1,12 @@
 class AddDataToMatch < ActiveRecord::Migration[5.1]
   def change
-     change_column :matches, :request_time1, :datetime
-     change_column :matches, :request_time2, 'timestamp without time zone USING CAST(request_time2 AS timestamp without time zone)'
-     change_column :matches, :request_time3, 'timestamp without time zone USING CAST(request_time3 AS timestamp without time zone)'
-     change_column :matches, :appoint_time,  'timestamp without time zone USING CAST(appoint_time AS timestamp without time zone)'
+     remove_column :matches, :request_time1
+     add_column :matches, :request_time1, :datetime
+     remove_column :matches, :request_time2
+     add_column :matches, :request_time2, :datetime
+     remove_column :matches, :request_time3
+     add_column :matches, :request_time3, :datetime
+     remove_column :matches, :appoint_time
+     add_column :matches, :appoint_time,  :datetime
   end
 end
