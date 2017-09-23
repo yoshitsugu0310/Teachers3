@@ -14,7 +14,7 @@ class Teacher < ApplicationRecord
 
 
   def self.feed(user)
-    if Teacher = nil
+    if Teacher == nil
       break
     end
     @student = Student.find_by(user_id: user.id)
