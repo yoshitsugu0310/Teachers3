@@ -6,14 +6,14 @@ class StaticPagesController < ApplicationController
       flash[:info] = 'まずマイページを作りましょう'
       redirect_to new_student_path
 
-    elsif  logged_in? && current_user.status == "student"
+    elsif  logged_in? && current_user.status == "student" && Teacher.present?
       @feed_items = Teacher.feed(current_user)
 
     elsif logged_in? && current_user.teacher == nil
       flash[:info] = 'まずマイページを作りましょう'
       redirect_to new_teacher_path
 
-    elsif logged_in? && current_user.status == "teacher"
+    elsif logged_in? && current_user.status == "teacher" 
       @feed_items = Student.feed(current_user)
 
     end
